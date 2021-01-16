@@ -32,5 +32,9 @@ namespace Equipe109_Hackaton_CCR.Models
         [Display(Name = "Cidade")]
         public string Cidade { get; set; }
 
+        [Required]
+        [Display(Name = "Logo")]
+        public FileStyleUriParser Logo { get; set; }
+
     }
 }
