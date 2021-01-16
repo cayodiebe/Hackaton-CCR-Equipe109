@@ -10,6 +10,7 @@ namespace Equipe109_Hackaton_CCR.Data
     public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<EmpresaModel> EmpresaModels { get; set; }
+        public DbSet<VagasModel> VagasModel { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

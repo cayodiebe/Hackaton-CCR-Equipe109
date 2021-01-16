@@ -4,14 +4,16 @@ using Equipe109_Hackaton_CCR.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Equipe109_Hackaton_CCR.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210116204923_ADD-Vagas")]
+    partial class ADDVagas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -60,11 +62,12 @@ namespace Equipe109_Hackaton_CCR.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("DataCriacao")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("DataCriacao")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DataExpiracao")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("DataExpiracao")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Descricao")
                         .IsRequired()

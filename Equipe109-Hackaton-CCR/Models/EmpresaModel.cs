@@ -34,7 +34,7 @@ namespace Equipe109_Hackaton_CCR.Models
 
         [Required]
         [Display(Name = "Logo")]
-        public FileStyleUriParser Logo { get; set; }
+        public string Logo { get; set; }
 
     }
 }
