@@ -51,14 +51,20 @@ namespace Equipe109_Hackaton_CCR.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "O {0} precisa conter entre {2} e {1}.", MinimumLength = 6)]
+            [Phone]
+            [Display(Name = "Telefone")]
+            public string PhoneNumber { get; set; }
+
+            [Required]
+            [StringLength(100, ErrorMessage = "A {0} precisa ter de {2} e {1} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Senha")]
             public string Password { get; set; }
 
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Confirmação de Senha")]
+            [Compare("Password", ErrorMessage = "A senha não deu match.")]
             public string ConfirmPassword { get; set; }
         }
 
