@@ -13,6 +13,9 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <input asp-for="Id" type="hidden" value="@Guid.NewGuid()" class="form-control" />
+            </div>
+            <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
                 <input asp-for="Titulo" class="form-control" />
                 <span asp-validation-for="Titulo" class="text-danger"></span>
@@ -31,6 +34,9 @@
                 <label asp-for="DataCriacao" class="control-label"></label>
                 <input asp-for="DataCriacao" class="form-control" />
                 <span asp-validation-for="DataCriacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="EmpresaModel" value="7189a54d-c169-4f2e-975f-9acd2f772a99" class="form-control" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
