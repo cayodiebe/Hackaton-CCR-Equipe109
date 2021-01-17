@@ -4,14 +4,16 @@ using Equipe109_Hackaton_CCR.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Equipe109_Hackaton_CCR.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210116223216_AddEmpresaLogi")]
+    partial class AddEmpresaLogi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,17 +69,6 @@ namespace Equipe109_Hackaton_CCR.Data.Migrations
                     b.ToTable("EmpresaModels");
                 });
 
-            modelBuilder.Entity("Equipe109_Hackaton_CCR.Models.Home", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Home");
-                });
-
             modelBuilder.Entity("Equipe109_Hackaton_CCR.Models.VagasModel", b =>
                 {
                     b.Property<Guid>("Id")
@@ -97,16 +88,11 @@ namespace Equipe109_Hackaton_CCR.Data.Migrations
                     b.Property<Guid>("EmpresaModel")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("HomeId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Titulo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("HomeId");
 
                     b.ToTable("VagasModel");
                 });
@@ -309,13 +295,6 @@ namespace Equipe109_Hackaton_CCR.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Equipe109_Hackaton_CCR.Models.VagasModel", b =>
-                {
-                    b.HasOne("Equipe109_Hackaton_CCR.Models.Home", null)
-                        .WithMany("vagasModels")
-                        .HasForeignKey("HomeId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
