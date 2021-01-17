@@ -29,7 +29,7 @@ namespace Equipe109_Hackaton_CCR.Models
         
         [Required]
         [Display(Name = "EmpresaModelID")]
-        public EmpresaModel EmpresaModel { get; set; }
+        public Guid EmpresaModel { get; set; }
 
     }
 }
