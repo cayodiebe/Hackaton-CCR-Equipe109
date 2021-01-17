@@ -54,15 +54,14 @@ namespace Equipe109_Hackaton_CCR.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Titulo,Descricao,DataExpiracao,DataCriacao")] VagasModel vagasModel)
+        public async Task<IActionResult> Create(VagasModel vagasModel)
         {
-            if (ModelState.IsValid)
-            {
-                vagasModel.Id = Guid.NewGuid();
-                _context.Add(vagasModel);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+            vagasModel.Id = Guid.NewGuid();
+
+            vagasModel.EmpresaModel = Guid.Parse("7189a54d-c169-4f2e-975f-9acd2f772a99");
+            _context.Add(vagasModel);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
             return View(vagasModel);
         }
 
