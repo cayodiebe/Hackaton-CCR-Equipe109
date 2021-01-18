@@ -1,5 +1,5 @@
 # DiversaVagas!
-# Solução criada por manda,Carol,Cayo,Daniel,Doni e Kamila.
+# Solução criada por Amanda,Carol,Cayo,Daniel,Doni e Kamila.
 
 ## Tabela de Conteúdo
 * Home
